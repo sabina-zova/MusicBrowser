@@ -44,10 +44,8 @@ class DataListBox(ScrollBox):
     def requery(self, link_value=None):
         if link_value and self.link_field:
             sql = self.sql_selection + " WHERE " + self.link_field + "=?" + self.sql_order
-            print(sql)  # TODO delete this later
             self.cursor.execute(sql, (link_value, ))
         else:
-            print(self.sql_selection + self.sql_order)   # TODO delete this later
             self.cursor.execute(self.sql_selection + self.sql_order)
 
         self.clear()
